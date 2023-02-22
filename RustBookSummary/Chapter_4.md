@@ -1,3 +1,5 @@
+*Summary of [https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)*
+
 # Chapter 4 
 
 ## 4.1 Understanding Ownership
