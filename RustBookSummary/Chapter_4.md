@@ -115,3 +115,42 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
 The ownership of a variable follows the same pattern every time: assigning a value to another variable moves it. When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless ownership of the data has been moved to another variable.
 
 **However, Rust has a feature for using a value without transferring ownership, called references.**
+
+## 4.2 References and Borrowing
+
+> At any given time, you can have either one mutable reference or any number of immutable references.
+
+> References must always be valid.
+
+A reference is like a pointer but it guarantees to point to a valid value of a particular type for the life of that reference.
+
+```
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);
+```
+
+The &s1 syntax lets create a reference that refers to the value of s1 but does not own it. Because it does not own it, the value it points to will not be dropped when the reference stops being used.
+
+The action of creating a reference is called *borrowing*.
+
+References (as variables) are immutable by default, to allow modifying a borrowed value *a mutable reference* would be needed:
+
+```
+    let mut s = String::from("hello");
+    change(&mut s);
+
+    fn change(some_string: &mut String) {
+```
+
+Mutable references have one big restriction: if you have a mutable reference to a value, you can have no other references to that value within the same scope, which is determine by curly brackets or by use (e.g. if the variable is no longer used the scope ends). This prevents data races at compile time. A data race is similar to a race condition and happens when these three behaviors occur:
+
+- Two or more pointers access the same data at the same time.
+- At least one of the pointers is being used to write to the data.
+- There's no mechanism being used to synchronize access to the data.
+
+### Dangling References
+
+In languages with pointers, it’s easy to erroneously create a dangling pointer — a pointer that references a location in memory that may have been given to someone else — by freeing some memory while preserving a pointer to that memory. In Rust, by contrast, the compiler guarantees that references will never be dangling references: if you have a reference to some data, the compiler will ensure that the data will not go out of scope before the reference to the data does.
+
+## 4.3 The Slice Type
+
