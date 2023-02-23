@@ -52,7 +52,11 @@ Rust ownership defines **a set of rules, checked at compile time, that govern ho
     let s2 = s1; // s1 is moved into s2
     // To ensure memory safety, Rust considers s1 as no longer valid.
 ```
-![Representation in memory of the variable s2 that has a copy of the pointer, length, and capacity of s1](./img/trpl04-04.svg) *Representation in memory of the variable s2 that has a copy of the pointer, length, and capacity of s1 - src: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#variables-and-data-interacting-with-move*
+
+<p align="center">
+    <img src="./img/trpl04-04.svg" width="250" />
+</p>
+<p align="center">Representation in memory of the variable s2 that has a copy of the pointer, length, and capacity of s1 (source: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#variables-and-data-interacting-with-move)</p>
 
 ## Variables and Data Interacting with Clone
 
@@ -133,7 +137,7 @@ The &s1 syntax lets create a reference that refers to the value of s1 but does n
 
 The action of creating a reference is called *borrowing*.
 
-References (as variables) are immutable by default, to allow modifying a borrowed value *a mutable reference* would be needed:
+References (as variables) are immutable by default, to allow modifying a borrowed value ***a mutable reference*** would be needed:
 
 ```
     let mut s = String::from("hello");
@@ -142,7 +146,7 @@ References (as variables) are immutable by default, to allow modifying a borrowe
     fn change(some_string: &mut String) {
 ```
 
-Mutable references have one big restriction: if you have a mutable reference to a value, you can have no other references to that value within the same scope, which is determine by curly brackets or by use (e.g. if the variable is no longer used the scope ends). This prevents data races at compile time. A data race is similar to a race condition and happens when these three behaviors occur:
+Mutable references have one big restriction: if you have a mutable reference to a value, you can have no other references to that value within the same scope, which is determined by curly brackets or by use (e.g. if the variable is no longer used the scope ends). This prevents data races at compile time. A data race is similar to a race condition and happens when these three behaviors occur:
 
 - Two or more pointers access the same data at the same time.
 - At least one of the pointers is being used to write to the data.
@@ -163,8 +167,6 @@ In languages with pointers, it’s easy to erroneously create a dangling pointer
     let world = &s[6..11];
 ```
 
-![String slice referring to part of a String](./img/trpl04-06.svg) *String slice referring to part of a String - src: https://doc.rust-lang.org/book/ch04-03-slices.html*
-
 The type that signifies “string slice” is written as &str:
 
 ```
@@ -181,3 +183,7 @@ The type that signifies “string slice” is written as &str:
     }
 ```
 
+<p align="center">
+    <img src="./img/trpl04-06.svg" width="250" />
+</p>
+<p align="center">String slice referring to part of a String (source: https://doc.rust-lang.org/book/ch04-03-slices.html)</p>
