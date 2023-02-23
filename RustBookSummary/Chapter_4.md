@@ -32,15 +32,15 @@ Rust ownership defines **a set of rules, checked at compile time, that govern ho
 - It manages data allocated on the heap, and as such is able to store an amount of text that is unknown at compile time.
 
 ```
-{
-    let mut s = String::from("hello"); // memory is requested to the allocator
+    {
+        let mut s = String::from("hello"); // memory is requested to the allocator
 
-    s.push_str(", world!"); // appends a literal to a String
+        s.push_str(", world!"); // appends a literal to a String
 
-    println!("{}", s); // `hello, world!` 
-}
-// s, which owns the String allocated memory goes out of scope
-// thus, the memory is returned to the allocator by calling the *drop* function
+        println!("{}", s); // `hello, world!` 
+    }
+    // s, which owns the String allocated memory goes out of scope
+    // thus, the memory is returned to the allocator by calling the *drop* function
 ```
 
 - In the case of an inmutable string literal, the contents are known at compile time, so the text is hardcoded directly into the final executable. This makes string literals fast and efficient.
@@ -153,4 +153,31 @@ Mutable references have one big restriction: if you have a mutable reference to 
 In languages with pointers, it’s easy to erroneously create a dangling pointer — a pointer that references a location in memory that may have been given to someone else — by freeing some memory while preserving a pointer to that memory. In Rust, by contrast, the compiler guarantees that references will never be dangling references: if you have a reference to some data, the compiler will ensure that the data will not go out of scope before the reference to the data does.
 
 ## 4.3 The Slice Type
+
+*Slices* let you reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership.
+
+```
+    let s = String::from("hello world");
+
+    let hello = &s[0..5];
+    let world = &s[6..11];
+```
+
+![String slice referring to part of a String](./img/trpl04-06.svg) *String slice referring to part of a String - src: https://doc.rust-lang.org/book/ch04-03-slices.html*
+
+The type that signifies “string slice” is written as &str:
+
+```
+    fn first_word(s: &str) -> &str {
+        let bytes = s.as_bytes();
+
+        for (i, &item) in bytes.iter().enumerate() {
+            if item == b' ' {
+                return &s[0..i];
+            }
+        }
+
+        &s[..]
+    }
+```
 
