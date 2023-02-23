@@ -1,8 +1,6 @@
 *Summary of [https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)*
 
-# Chapter 4 
-
-## 4.1 Understanding Ownership
+# Chapter 4 - Understanding Ownership
 
 Rust ownership defines **a set of rules, checked at compile time, that govern how a Rust program manages (heap) memory**  (this differs from garbage collectors and programmatic (de)allocations). 
 
