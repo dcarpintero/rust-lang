@@ -1,3 +1,5 @@
+use std::io;
+
 enum Temp {
     F(f64),
     C(f64),
@@ -19,16 +21,25 @@ fn print_temperature(temp: &Temp) {
 }
 
 fn main() {
-    println!("Temperature Convertor!");
+    println!("Temperature Convertor - Enter the temperature (e.g. 25C or 40F):");
+    let mut input = String::new();
+    io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line");
 
-    let temps = [
-        Temp::F(-40.0), // -40
-        Temp::F(0.0),   // -18
-        Temp::C(-40.0), // -40
-        Temp::C(0.0),   // 32
-    ];
+    let input = input.trim();
+    let (temp, scale) = input.split_at(input.len() - 1);
 
-    for temp in temps.iter() {
-        print_temperature(temp);
-    }
+    let temp: f64 = match temp.parse() {
+        Ok(num) => num,
+        Err(_) => 0.0,
+    };
+
+    let temp: Temp = match scale {
+        "C" => Temp::C(temp),
+        "F" => Temp::F(temp),
+        &_ => Temp::C(0.0),
+    };
+
+    print_temperature(&temp);
 }
