@@ -23,7 +23,8 @@ fn input_temperature() -> Temp {
     let temp: Temp = match scale {
         "C" => Temp::C(value),
         "F" => Temp::F(value),
-        &_ => panic!("Invalid temperature format!"),
+        _ => { println!("Invalid temperature format!");
+               input_temperature() },
     };
     
     return temp
