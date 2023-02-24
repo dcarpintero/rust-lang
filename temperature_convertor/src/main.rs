@@ -7,7 +7,7 @@ enum Temp {
 
 fn main() {
     let temp = input_temperature();
-    print_temperature(&temp);
+    convert_temperature(&temp);
 }
 
 fn input_temperature() -> Temp {
@@ -26,19 +26,20 @@ fn input_temperature() -> Temp {
         &_ => panic!("Invalid temperature format!"),
     };
     
-    temp
+    return temp
 }
 
-fn convert_temperature(temp: &Temp) -> f64 {
+fn convert_temperature(temp: &Temp) {
     match temp {
-        &Temp::F(degrees) => (degrees - 32.0) / 1.8,    // convert to Celsius
-        &Temp::C(degrees) => (degrees * 1.8) + 32.0,    // convert to Fahrenheit
+        &Temp::F(degrees) => println!("{}F = {:.0}C", degrees, convert_from_fahrenheit(degrees)),    // convert to Celsius
+        &Temp::C(degrees) => println!("{}C = {:.0}F", degrees, convert_from_celsius(degrees)),       // convert to Fahrenheit
     }
 }
 
-fn print_temperature(temp: &Temp) {
-    match temp {
-        &Temp::F(degrees) => println!("{}F = {:.0}C", degrees, convert_temperature(temp)),
-        &Temp::C(degrees) => println!("{}C = {:.0}F", degrees, convert_temperature(temp)),
-    }
+fn convert_from_fahrenheit (degrees: f64) -> f64 {
+    return (degrees - 32.0) / 1.8;
+}
+
+fn convert_from_celsius (degrees: f64) -> f64 {
+    return (degrees * 1.8) + 32.0;
 }
