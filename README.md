@@ -10,3 +10,4 @@
 - [Chapter_3: Common Programming Concepts](./rust_book_summary/Chapter_3.md)
 - [Chapter_4: Ownership](./rust_book_summary/Chapter_4.md)
 - [Chapter_5: Using Structs](./rust_book_summary/Chapter_5.md)
+- [Chapter_6: Enums and Pattern Matching](./rust_book_summary/Chapter_6.md)
