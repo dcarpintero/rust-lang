@@ -11,3 +11,4 @@
 - [Chapter_4: Ownership](./rust_book_summary/Chapter_4.md)
 - [Chapter_5: Using Structs](./rust_book_summary/Chapter_5.md)
 - [Chapter_6: Enums and Pattern Matching](./rust_book_summary/Chapter_6.md)
+- [Chapter_7: Managing Growing Projects with Packages, Crates, and Modules](./rust_book_summary/Chapter_7.md)
