@@ -57,3 +57,34 @@ Tuple structs are useful when naming each field as in a regular struct would be 
 ## Methods Syntax
 
 Methods are similar to functions, but defined within the context of a struct.
+
+```
+    struct Rectangle {
+        width: u32,
+        height: u32,
+    }
+
+    impl Rectangle {
+        fn area(&self) -> u32 {
+            self.width * self.height
+        }
+
+        fn square(size: u32) -> Self {    // Self is an alias for Rectangle
+            Self {
+                width: size,
+                height: size,
+            }
+        }
+    }
+
+    let sq = Rectangle::square(3);
+```
+
+All functions defined within an impl block are called associated functions because they're associated with the type named after the impl. 
+
+It is also possible to define associated functions not having self as their first parameter
+(and thus are not methods) because they don’t need an instance of the type to work with (e.g. String::from).
+
+## Summary
+
+Structs let you create custom types that are meaningful for your domain. By using structs, you can keep associated pieces of data connected to each other and name each piece to make your code clear. In impl blocks, you can define functions that are associated with your type, and methods are a kind of associated function that let you specify the behavior that instances of your structs have.
