@@ -2,7 +2,7 @@
 
 # Chapter 5 - Using Structs to Structure Related Data
 
-Structs are similar to tuples, in that both hold multiple related values. Like tuples, the pieces of a struct can be different types. Unlike with tuples, in a struct you’ll name each piece of data so it’s clear what the values mean. Adding these names means that structs are more flexible than tuples: you don’t have to rely on the order of the data to specify or access the values of an instance.
+Structs are similar to tuples, in that both hold multiple related values. Like tuples, the pieces of a struct can be different types. Unlike tuples, in a struct each piece of data is named. This results in more flexibily when accessing the values of an instance.
 
 ```
     struct User {
