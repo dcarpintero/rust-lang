@@ -53,3 +53,7 @@ Tuple structs are useful when naming each field as in a regular struct would be 
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
 ```
+
+## Methods Syntax
+
+Methods are similar to functions, but defined within the context of a struct.
