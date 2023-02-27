@@ -13,3 +13,4 @@
 - [Chapter_6: Enums and Pattern Matching](./rust_book_summary/Chapter_6.md)
 - [Chapter_7: Managing Growing Projects with Packages, Crates, and Modules](./rust_book_summary/Chapter_7.md)
 - [Chapter_8: Common Collections](./rust_book_summary/Chapter_8.md)
+- [Chapter_9: Error Handling](./rust_book_summary/Chapter_9.md)
