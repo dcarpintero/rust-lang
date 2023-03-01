@@ -24,7 +24,7 @@ mod tests {
             width: 5,
             height: 3,
         };
-        assert!(larger.can_hold(&smaller));
+        assert!(larger.can_hold(&smaller), "Larger shall hold smaller");
     }
 
     #[test]
@@ -37,6 +37,6 @@ mod tests {
             width: 5,
             height: 3,
         };
-        assert!(!smaller.can_hold(&larger));
+        assert!(!smaller.can_hold(&larger), "Smaller shall not hold larger");
     }
 }
