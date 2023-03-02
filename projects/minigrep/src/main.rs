@@ -1,6 +1,8 @@
-use std::env; // bring std::env and std::fs modules into scope
+// bring modules into scope
+use std::env; 
 use std::fs;
 use std::process;
+use std::error::Error;
 
 fn main() {
     // the collect method on an iterator turns it into a collection, such as a vector
@@ -10,15 +12,25 @@ fn main() {
         process::exit(1);
     });
 
-    println!("Searching for {}", config.query);
-    println!("In file: '{}'", config.file_path);
+    println!("Searching for '{}'", config.query);
+    println!("In file '{}'", config.file_path);
 
-    let contents = fs::read_to_string(config.file_path)
-        .expect("Should have been able to read the file");
-    println!("With text:\n{contents}");
+    // Because run returns () in the success case, we only handle an error
+    if let Err(e) = run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
+    }
 
     // print the vector using the debug macro
     dbg!(args);
+}
+
+fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    let contents = fs::read_to_string(config.file_path)?;
+
+    println!("\n{contents}");
+
+    Ok(())
 }
 
 struct Config {
