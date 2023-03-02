@@ -12,9 +12,6 @@ fn main() {
         process::exit(1);
     });
 
-    println!("Searching for '{}'", config.query);
-    println!("In file '{}'", config.file_path);
-
     // Because run returns () in the success case, we only handle an error
     if let Err(e) = minigrep::run(config) {
         println!("Application error: {e}");
@@ -22,5 +19,5 @@ fn main() {
     }
 
     // print the vector using the debug macro
-    dbg!(args);
+    // dbg!(args);
 }
