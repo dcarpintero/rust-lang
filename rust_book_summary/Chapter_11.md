@@ -27,7 +27,7 @@ The **cargo test** command builds a test runner binary that runs the annotated f
     assert_ne!
     panic!
 
-    // Any arguments specified after the required arguments are passed along to the format! 
+    // Any arguments specified after the required arguments are passed along to the format! macro
 
     #[test]
     fn greeting_contains_name() {
@@ -64,9 +64,9 @@ By default tests are run in parallel using threads. Thus, make sure the tests do
 
 ## Unit Tests
 
-The convention is to create a module named tests in each file to contain the test functions and to annotate the module with cfg(test).
+The convention is to *create a module named tests in each file* to contain the test functions and to annotate the module with cfg(test).
 
-No that Rust's privacy rules do allow you to test private functions. In other words, all unit tests in a given file have access to that file's private functions, regardless of being in a mod tests or not.
+Note that Rust's privacy rules do allow you to test private functions. In other words, all unit tests in a given file have access to that file's private functions, regardless of being in a mod tests or not.
 
 ## Integration Tests
 
