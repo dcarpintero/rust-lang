@@ -35,3 +35,6 @@ Rust's design has taken inspiration from many existing languages and techniques,
     }
 
 ```
+
+Iterators are one of Rust’s zero-cost abstractions, i.e. the abstraction imposes no additional runtime overhead. This is analogous to how Bjarne Stroustrup, the original designer and implementor of C++, defines zero-overhead in “Foundations of C++” (2012).
+
