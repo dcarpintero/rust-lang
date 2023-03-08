@@ -16,3 +16,4 @@
 - [Chapter_9: Error Handling](./rust_book_summary/Chapter_9.md)
 - [Chapter_10: Generic Types, Traits, and Lifetimes](./rust_book_summary/Chapter_10.md)
 - [Chapter_11: Writing Automated Tests](./rust_book_summary/Chapter_11.md)
+- [Chapter_13: Functional Languages Features - Iterators and Closures](./rust_book_summary/Chapter_13.md)
