@@ -16,3 +16,22 @@ Rust's design has taken inspiration from many existing languages and techniques,
 ```
 
 - Closures can capture values from their environment in three ways: borrowing immutably, borrowing mutably, and taking ownership (by using the *move* keyword).
+
+## Iterators
+
+```
+    #[cfg(test)]
+    mod tests {
+        #[test]
+        fn iterator_sum() {
+            let v1 = vec![1, 2, 3];
+
+            let v1_iter = v1.iter();
+
+            let total: i32 = v1_iter.sum();
+
+            assert_eq!(total, 6);
+        }
+    }
+
+```
