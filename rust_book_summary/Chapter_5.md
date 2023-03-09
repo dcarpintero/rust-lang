@@ -1,5 +1,3 @@
-*Summary of [https://doc.rust-lang.org/book/ch05-00-structs.html](https://doc.rust-lang.org/book/ch05-00-structs.html)*
-
 # Chapter 5 - Using Structs to Structure Related Data
 
 Structs are similar to tuples, in that both hold multiple related values. Like tuples, the pieces of a struct can be different types. Unlike tuples, in a struct each piece of data is named. This results in more flexibily when accessing the values of an instance.
