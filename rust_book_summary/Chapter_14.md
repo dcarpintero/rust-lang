@@ -21,11 +21,11 @@ opt-level = 3
 
 ## Publishing a Crate to Crates.io
 
-- Documentation comments use three slashes, ///, instead of two and support Markdown notation for formatting the text. Typically documentation comments include: examples, panics, errors, and safety.
+- Documentation comments use three slashes, ///, instead of two and support Markdown notation for formatting the text. Typically documentation comments include: *examples, panics, errors, and safety*.
 
 - The style of doc comment //! adds documentation to the item that *contains* the comments rather than to the items following the comments. Useful for describing crates and modules especially. 
 
-- The command *cargo doc* runs the rustdoc tool distributed with Rust and puts the generated HTML documentation in the target/doc directory:
+- The command *cargo doc* runs the rustdoc tool. and puts the generated HTML documentation in the target/doc directory:
 
 ```
     cargo doc
@@ -71,3 +71,11 @@ opt-level = 3
 ```
     cargo yank --vers 1.0.1
 ```
+
+## Cargo Workspace
+
+*workspaces* help manage multiple related packages, they share the same Cargo.lock and output directory.
+
+## Custom Commands
+
+Cargo is designed so you can extend it with new subcommands without having to modify Cargo. If a binary in your $PATH is named cargo-something, you can run it as if it was a Cargo subcommand by running cargo something. Custom commands like this are also listed when you run **cargo --list**.
