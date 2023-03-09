@@ -17,3 +17,4 @@
 - [Chapter_10: Generic Types, Traits, and Lifetimes](./rust_book_summary/Chapter_10.md)
 - [Chapter_11: Writing Automated Tests](./rust_book_summary/Chapter_11.md)
 - [Chapter_13: Functional Languages Features - Iterators and Closures](./rust_book_summary/Chapter_13.md)
+- [Chapter_14: Cargo and Crates.io](./rust_book_summary/Chapter_14.md)
