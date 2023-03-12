@@ -1,3 +1,4 @@
+use std::fmt;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 #[derive(Debug)]
@@ -12,7 +13,7 @@ struct Block {
 
 impl Block {
     fn new(index: u64, difficulty: u16, previous_hash: String, data: String) -> Block {
-        let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs();
+        let timestamp = Utc::now().timestamp_millis() as u64;
         let hash = Block::calculate_hash(&index, &timestamp, &difficulty, &previous_hash, &data);
         Block {
             index,
@@ -22,5 +23,9 @@ impl Block {
             data,
             hash,
         }
+    }
+
+    fn calculate_hash() -> String {
+        "0x"
     }
 }
