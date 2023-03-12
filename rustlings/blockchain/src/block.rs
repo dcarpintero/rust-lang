@@ -1,5 +1,6 @@
 use std::fmt;
 use std::time::{SystemTime, UNIX_EPOCH};
+use sha2::{Sha256, Digest};
 
 #[derive(Debug)]
 struct Block {
@@ -25,7 +26,13 @@ impl Block {
         }
     }
 
-    fn calculate_hash() -> String {
-        "0x"
+    fn calculate_hash(index: &u64, timestamp: &u64, data: &String, previous_hash: &String) -> String {
+        let mut hasher = Sha256::new();
+        hasher.update(index.to_string());
+        hasher.update(timestamp.to_string());
+        hasher.update(data);
+        hasher.update(previous_hash);
+        let result = hasher.finalize();
+        format!("{:x}", result)
     }
 }
